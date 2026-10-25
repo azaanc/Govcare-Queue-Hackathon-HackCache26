@@ -4,12 +4,12 @@
 
 Built for the GovCare Queue hackathon project by **Azaan Asif Chowdhary** and **Ayaan Choudhary**.
 
-- Live app: 'https://govcarequeue.vercel.app/'
+- Live app: https://govcarequeue.vercel.app/
 - **Patient app:** `/#/opd`
 - **Staff dashboard:** `/#/staff`
 - **Waiting-room board:** `/#/board`
 - **Registration counter:** `/#/staff/counter`
-- **Pitch Deck:** `https://gamma.app/docs/GovCare-Queue-3h4ru76fz591ceg`
+- **Pitch Deck:** https://gamma.app/docs/GovCare-Queue-3h4ru76fz591ceg
 
 ---
 
