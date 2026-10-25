@@ -9,6 +9,7 @@ Built for the GovCare Queue hackathon project by **Azaan Asif Chowdhary** and **
 - **Staff dashboard:** `/#/staff`
 - **Waiting-room board:** `/#/board`
 - **Registration counter:** `/#/staff/counter`
+- **Pitch Deck:** `https://gamma.app/docs/GovCare-Queue-3h4ru76fz591ceg`
 
 ---
 
