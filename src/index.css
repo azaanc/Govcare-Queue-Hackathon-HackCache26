@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --color-brand: #0b3f6b;
+  --color-brand-deep: #072b4c;
+  --color-brand-ink: #051f38;
+  --color-brand-light: #eaf2f8;
+  --color-brand-line: #dbe6ef;
+  --color-link: #155f97;
+  --color-ink: #17222c;
+  --color-copy: #586572;
+  --color-rule: #e3e8ee;
+  --color-mist: #f5f8fa;
+  --color-alert: #a83226;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 104px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+  }
+
+  ::selection {
+    background: #cfe2f1;
+    color: #062849;
+  }
+
+  :focus-visible {
+    outline: 2px solid #155f97;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1304px;
+    margin-inline: auto;
+    padding-inline: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-link);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 160ms ease;
+  }
+
+  .text-link:hover {
+    color: var(--color-brand-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .text-link svg {
+    transition: transform 160ms ease;
+  }
+
+  .text-link:hover svg {
+    transform: translateX(2px);
+  }
+
+  .numeric {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  .portal-tab {
+    position: relative;
+  }
+
+  .portal-tab[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--color-brand);
+  }
+}
+
+@keyframes map-route-dash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@keyframes critical-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(181, 52, 38, 0.32);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 4px rgba(181, 52, 38, 0);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.map-route-line {
+  animation: map-route-dash 1.8s linear infinite;
+}
+
+.map-critical-pulse {
+  animation: critical-pulse 1.8s ease-in-out infinite;
+}
+
+.portal-toast {
+  animation: toast-in 220ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-route-line,
+  .map-critical-pulse,
+  .portal-toast {
+    animation: none !important;
+  }
+}
+
+/* OPD Saathi additions — same palette and type system as the hospital site. */
+.opd-app {
+  --opd-scale: 1;
+  font-size: 16px;
+}
+
+html[data-opd-text="large"] .opd-app {
+  zoom: 1.07;
+}
+
+html[data-opd-text="largest"] .opd-app {
+  zoom: 1.14;
+}
+
+html[data-opd-contrast="high"] .opd-app {
+  filter: contrast(1.16) saturate(1.06);
+}
+
+html[data-opd-contrast="high"] .opd-app button,
+html[data-opd-contrast="high"] .opd-app a,
+html[data-opd-contrast="high"] .opd-app input,
+html[data-opd-contrast="high"] .opd-app select,
+html[data-opd-contrast="high"] .opd-app textarea {
+  border-color: #263b4a;
+}
+
+.opd-app :focus-visible {
+  outline: 3px solid #0b3f6b;
+  outline-offset: 2px;
+}
+
+.opd-app h1.opd-heading:focus,
+.opd-app h1.opd-heading:focus-visible {
+  outline: none;
+}
+
+.opd-app .numeric {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+@keyframes opd-map-dash {
+  to { stroke-dashoffset: -32; }
+}
+
+@keyframes opd-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(165, 52, 40, 0.3); }
+  50% { opacity: 0.65; box-shadow: 0 0 0 4px rgba(165, 52, 40, 0); }
+}
+
+.opd-map-route {
+  animation: opd-map-dash 1.8s linear infinite;
+}
+
+.opd-app .animate-pulse {
+  animation-duration: 2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-opd-text="large"] .opd-app,
+  html[data-opd-text="largest"] .opd-app {
+    zoom: 1;
+  }
+  html[data-opd-text="large"] .opd-app,
+  html[data-opd-text="largest"] .opd-app {
+    font-size: 18px;
+  }
+  .opd-map-route,
+  .opd-app .animate-pulse,
+  .opd-app .animate-ping {
+    animation: none !important;
+  }
+  .opd-app * {
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 359px) {
+  html[data-opd-text="large"] .opd-app,
+  html[data-opd-text="largest"] .opd-app {
+    zoom: 1;
+  }
+}
+
+@media print {
+  .opd-app {
+    display: none !important;
+  }
+}

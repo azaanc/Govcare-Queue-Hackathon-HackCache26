@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA fallback: a refresh on a client-side route must return the app, not 404.
+# Existing files (including /staff/ and /board/) are served before this rule.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
