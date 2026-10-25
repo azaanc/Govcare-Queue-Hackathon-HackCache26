@@ -4,7 +4,7 @@
 
 Built for the GovCare Queue hackathon project by **Azaan Asif Chowdhary** and **Ayaan Choudhary**.
 
-- **Live app:** add your deployment URL here after deploying
+- **Live app: 'https://govcarequeue.vercel.app/'
 - **Patient app:** `/#/opd`
 - **Staff dashboard:** `/#/staff`
 - **Waiting-room board:** `/#/board`
@@ -160,7 +160,7 @@ This is a demonstration formula, not a clinically validated prediction. A real d
 
 ---
 
-## How to run it
+## How to run it(locally)
 
 **Requirements:** Node.js 20.19+ (22 or 24 recommended).
 
